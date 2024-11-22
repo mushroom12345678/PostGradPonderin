@@ -6,4 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(PostGradPonderin
         main.cpp
         County.h
-        County.cpp)
+        County.cpp
+        HeapSort.h
+        HeapSort.h
+        HeapSort.cpp)
