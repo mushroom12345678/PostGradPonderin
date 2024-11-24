@@ -8,7 +8,7 @@
 
 
 class County {
-private:
+public:
     //different data points
     //I just put all the categories in the spreadsheet that seemed relevant here idk if we need them all here
     std::string state;
@@ -35,8 +35,6 @@ private:
 
     //ranking variables
     float score;
-public:
-
 };
 
 
