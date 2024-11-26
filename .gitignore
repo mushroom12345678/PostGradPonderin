@@ -2,6 +2,6 @@
 *.dll
 *.exe
 *.lib
-
+*.json
 # Ignore SFML and other fetched dependencies
 _deps/
