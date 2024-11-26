@@ -1,7 +1,7 @@
 //
 // Created by lucia on 11/22/2024.
 //
-
+// code sourced from lecture pseudocode and help from https://www.geeksforgeeks.org/heap-sort/ and https://www.geeksforgeeks.org/switch-statement-in-cpp/
 #include "HeapSort.h"
 
 void HeapSort::heapSort(std::vector<County> &arr, int n, HeapSort::sortParameters param) {

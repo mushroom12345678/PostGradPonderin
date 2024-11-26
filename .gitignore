@@ -1,0 +1,7 @@
+# Ignore dependency binaries and libraries
+*.dll
+*.exe
+*.lib
+
+# Ignore SFML and other fetched dependencies
+_deps/
