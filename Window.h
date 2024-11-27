@@ -7,15 +7,15 @@
 #include <SFML/Graphics.hpp>
 
 class Window {
-private:
+public:
     sf::RenderWindow screen;
-    sf::Text title;
+    sf::Text screenTitle;
     sf::Font font;
 
     void windowEvents(); //handles window events like button press
     void draw(); //draws all elements
 
-public:
+
     Window(const std::string& title, int width, int height);
     void run();
 

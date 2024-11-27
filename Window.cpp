@@ -10,6 +10,13 @@ Window::Window(const std::string &title, int width, int height) {
     if(!font.loadFromFile("resources/font.ttf")){
         throw std::runtime_error("Failed to load requested font");
     }
+
+    //configure text
+    screenTitle.setFont(font);
+    screenTitle.setString("Post Grad Ponderin");
+    screenTitle.setCharacterSize(24);
+    screenTitle.setFillColor(sf::Color::Black);
+    screenTitle.setPosition(50, 50);
 }
 
 
@@ -26,7 +33,7 @@ void Window::windowEvents() {
 
 void Window::draw(){
     screen.clear(sf::Color::White);
-
+    screen.draw(screenTitle);
     screen.display();
 }
 
