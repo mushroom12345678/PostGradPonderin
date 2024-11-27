@@ -24,6 +24,16 @@ add_executable(PostGradPonderin
 target_link_libraries(PostGradPonderin PRIVATE sfml-graphics)
 target_compile_features(PostGradPonderin PRIVATE cxx_std_14)
 
+# Copy resources folder to the build output directory
+set(RESOURCES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/resources)
+add_custom_command(
+        TARGET PostGradPonderin POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${RESOURCES_DIR} $<TARGET_FILE_DIR:PostGradPonderin>/resources
+        COMMENT "Copying resources folder to the build output directory"
+)
+
+
 if(WIN32)
     add_custom_command(
             TARGET PostGradPonderin

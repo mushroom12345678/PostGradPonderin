@@ -7,7 +7,7 @@
 Window::Window(const std::string &title, int width, int height) {
     screen.create(sf::VideoMode(width, height), title);
 
-    if(!font.loadFromFile("arial.ttf")){
+    if(!font.loadFromFile("resources/font.ttf")){
         throw std::runtime_error("Failed to load requested font");
     }
 }
