@@ -20,7 +20,12 @@ add_executable(PostGradPonderin
         HeapSort.h
         HeapSort.cpp
         Window.h
-        Window.cpp)
+        Window.cpp
+        Window.cpp
+        Window.cpp
+        Window.cpp
+        HeapSort.h
+        HeapSort.cpp)
 target_link_libraries(PostGradPonderin PRIVATE sfml-graphics)
 target_compile_features(PostGradPonderin PRIVATE cxx_std_14)
 
