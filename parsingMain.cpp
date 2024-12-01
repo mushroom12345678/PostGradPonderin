@@ -1,7 +1,8 @@
-//#include "Counties.h"
+#include "Counties.h"
 //#include <fstream>
 //#include <sstream>
-//#include <vector>
+#include <vector>
+#include <map>
 //#include <string>
 //#include <iostream>
 //
@@ -71,3 +72,22 @@
 //
 //    return 0;
 //}
+
+/*
+
+map<string, float> getScores(vector<Counties> counties, string outputUnemployment, string outputIncome, string outputEducation, string outputPoverty)
+{
+    map<string, float> result;
+    for(int i = 0; i < counties.size(); i++)
+    {
+        float povVal = (counties[i].getPoverty()) * stoi(outputPoverty);
+        float unempVal = counties[i].getUnemployment() * stoi(outputUnemployment);
+        float eduVal = counties[i].getEducation() * stoi(outputEducation);
+        float incVal = (counties[i].getIncome() / 10000)* stoi(outputIncome); // regulates number cause unemployment is in hundred thousands
+        float score = povVal + unempVal + eduVal + incVal;
+        string name = counties[i].getName();
+        result[name] = score;
+    }
+    return result;
+}
+*/

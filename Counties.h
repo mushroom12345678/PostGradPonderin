@@ -40,8 +40,13 @@ public:
     void setHSDiplomaOnly1970(float value);
     void setSomeCollege1970(float value);
     void setFourYearsCollege1970(float value);
-
+    void setScore(float value);
     void print();
+    string getName();
+    float getPoverty();
+    float getUnemployment();
+    float getEducation();
+    float getIncome();
 
 private:
     int FIPSCode = 0;
@@ -74,6 +79,7 @@ private:
     float HSDiplomaOnly1970 = -1.0f;
     float someCollege1970 = -1.0f;
     float fourYearsCollege1970 = -1.0f;
+    float score = -1.0f;
 };
 
 #endif // COUNTIES_H
