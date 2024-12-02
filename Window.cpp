@@ -13,6 +13,13 @@ Window::Window(const std::string &title, int width, int height) {
     }
 
     //configure text
+    resultTitle.setFont(font);
+    resultTitle.setString("You should move to...");
+    resultTitle.setCharacterSize(30);
+    resultTitle.setFillColor(sf::Color::Black);
+    resultTitle.setStyle(sf::Text::Bold);
+    resultTitle.setPosition(200, 10);
+
     screenTitle.setFont(font);
     screenTitle.setString("Post Grad Ponderin");
     screenTitle.setCharacterSize(30);
@@ -98,8 +105,22 @@ Window::Window(const std::string &title, int width, int height) {
     outputUnemployment.setCharacterSize(24);
     outputUnemployment.setFillColor(sf::Color::Black);
     outputUnemployment.setPosition(60, 160);
-}
 
+    submit.setSize(sf::Vector2f(600, 50));
+    submit.setFillColor(sf::Color::Green);
+    submit.setOutlineColor(sf::Color::Black);
+    submit.setOutlineThickness(2);
+    submit.setPosition(100, 700);
+
+    submittext.setFont(font);
+    submittext.setCharacterSize(30);
+    submittext.setFillColor(sf::Color::Black);
+    submittext.setPosition(350,700);
+    submittext.setString("SUBMIT");
+
+
+
+}
 
 void Window::windowEvents() {
     sf::Event event;
@@ -125,12 +146,15 @@ void Window::windowEvents() {
             {
                 activeBox = Unemployment;
             }
+            else if(submit.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+            {
+                activeBox = Submit;
+            }
             else
             {
                 activeBox = None;
             }
         }
-        //if (event.type == sf::Event::KeyPressed) {
             if (event.type == sf::Event::TextEntered)
             {
                 if(activeBox==Poverty)
@@ -168,6 +192,10 @@ void Window::windowEvents() {
                     outputIncome.setString(inputIncome);
                     outputIncome.setPosition(textBoxIncome.getPosition().x + 10, textBoxIncome.getPosition().y + 10);
                 }
+                else if(activeBox == Submit)
+                {
+                    //clear();
+                }
 
             }
         //}
@@ -177,24 +205,36 @@ void Window::windowEvents() {
         //other events like buttons pressed will be handled here
     }
 }
+void Window::draw()
+{
+    if(activeBox == Submit)
+    {
+        screen.clear(sf::Color::White);
+        screen.draw(resultTitle);
+        screen.display();
 
-void Window::draw(){
-    screen.clear(sf::Color::White);
-    screen.draw(screenTitle);
-    screen.draw(promptPoverty);
-    screen.draw(textBoxPoverty);
-    screen.draw(promptEducation);
-    screen.draw(textBoxEducation);
-    screen.draw(promptUnemployment);
-    screen.draw(textBoxUnemployment);
-    screen.draw(promptIncome);
-    screen.draw(textBoxIncome);
-    screen.draw(outputIncome);
-    screen.draw(outputEducation);
-    screen.draw(outputPoverty);
-    screen.draw(outputUnemployment);
-    screen.draw(instructions);
-    screen.display();
+    }
+    else
+    {
+        screen.clear(sf::Color::White);
+        screen.draw(screenTitle);
+        screen.draw(promptPoverty);
+        screen.draw(textBoxPoverty);
+        screen.draw(promptEducation);
+        screen.draw(textBoxEducation);
+        screen.draw(promptUnemployment);
+        screen.draw(textBoxUnemployment);
+        screen.draw(promptIncome);
+        screen.draw(textBoxIncome);
+        screen.draw(outputIncome);
+        screen.draw(outputEducation);
+        screen.draw(outputPoverty);
+        screen.draw(outputUnemployment);
+        screen.draw(instructions);
+        screen.draw(submit);
+        screen.draw(submittext);
+        screen.display();
+    }
 
 }
 

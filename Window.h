@@ -17,11 +17,14 @@ public:
     sf::Text promptUnemployment;
     sf::Text promptIncome;
     sf::Text instructions;
+    sf::Text resultTitle;
 
     sf::RectangleShape textBoxPoverty;
     sf::RectangleShape textBoxUnemployment;
     sf::RectangleShape textBoxIncome;
-    sf::RectangleShape textBoxEducation;// Rectangle for the input area
+    sf::RectangleShape textBoxEducation;
+    sf::RectangleShape submit;
+    sf::Text submittext;
     string inputPoverty;
     string inputEducation;
     string inputUnemployment;
@@ -32,13 +35,14 @@ public:
     sf::Text outputUnemployment;
     sf::Text outputIncome;
 
-    enum ActiveBox {None, Poverty, Education, Unemployment, Income} activeBox = None;
+    enum ActiveBox {None, Poverty, Education, Unemployment, Income, Submit} activeBox = None;
     void windowEvents(); //handles window events like button press
     void draw(); //draws all elements
 
 
     Window(const std::string& title, int width, int height);
     void run();
+    void clear();
 
 };
 
