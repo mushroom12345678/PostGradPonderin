@@ -5,6 +5,7 @@
 #ifndef POSTGRADPONDERIN_WINDOW_H
 #define POSTGRADPONDERIN_WINDOW_H
 #include <SFML/Graphics.hpp>
+#include <set>
 using namespace std;
 
 class Window {
@@ -34,6 +35,10 @@ public:
     sf::Text outputEducation;
     sf::Text outputUnemployment;
     sf::Text outputIncome;
+
+    set<char> uniqueInputs; // tracks unique input ranking characters
+    map<char, int> charCounts; //tracks occurrences of ranking character
+    bool showResults = false;
 
     enum ActiveBox {None, Poverty, Education, Unemployment, Income, Submit} activeBox = None;
     void windowEvents(); //handles window events like button press

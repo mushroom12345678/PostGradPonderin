@@ -1,8 +1,9 @@
 //
 // Created by lucia on 11/26/2024.
 //
-
+#include <set>
 #include "Window.h"
+#include <iostream>
 using namespace std;
 
 Window::Window(const std::string &title, int width, int height) {
@@ -149,6 +150,11 @@ void Window::windowEvents() {
             else if(submit.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
             {
                 activeBox = Submit;
+                if(uniqueInputs.size() == 4){
+                    cout << "unique inputs is 4";
+                    showResults = true;
+                }
+                cout << "input size: " << uniqueInputs.size();
             }
             else
             {
@@ -156,29 +162,45 @@ void Window::windowEvents() {
             }
         }
 
-
             if (event.type == sf::Event::TextEntered){
                 if ((event.text.unicode >= '1' && event.text.unicode <= '4') || event.text.unicode == 8){
                     char enteredChar = static_cast<char>(event.text.unicode);
+
                     if(activeBox==Poverty){
                         if(enteredChar == 8){
                             if(!inputPoverty.empty()){
-                                inputPoverty.pop_back();
-                            }
-                        } else {
-                            inputPoverty += enteredChar;
-                        }
+                                char charToRemove = inputPoverty.back(); //getting character being removed
+                                inputPoverty.pop_back(); //removing char
 
+                                charCounts[charToRemove]--;
+                                if(charCounts[charToRemove] == 0){
+                                    uniqueInputs.erase(charToRemove); // removing from set
+                                }
+
+                            }
+                        } else if(inputPoverty.empty()){ // only allows the user to add a rank if there isn't one already
+                            inputPoverty += enteredChar;
+                            uniqueInputs.insert(enteredChar);
+                            charCounts[enteredChar]++;
+                        }
                         outputPoverty.setString(inputPoverty);
                         outputPoverty.setPosition(textBoxPoverty.getPosition().x + 10, textBoxPoverty.getPosition().y + 10);
                     }
                     else if(activeBox == Education){
                         if(enteredChar == 8){
                             if(!inputEducation.empty()){
+                                char charToRemove = inputEducation.back();
                                 inputEducation.pop_back();
+
+                                charCounts[charToRemove]--;
+                                if(charCounts[charToRemove] == 0){
+                                    uniqueInputs.erase(charToRemove); // removing from set
+                                }
                             }
-                        } else {
+                        } else if(inputEducation.empty()){
                             inputEducation += enteredChar;
+                            uniqueInputs.insert(enteredChar);
+                            charCounts[enteredChar]++;
                         }
                         outputEducation.setString(inputEducation);
                         outputEducation.setPosition(textBoxEducation.getPosition().x + 10, textBoxEducation.getPosition().y + 10);
@@ -186,10 +208,18 @@ void Window::windowEvents() {
                     else if(activeBox == Unemployment){
                         if(enteredChar == 8){
                             if(!inputUnemployment.empty()){
+                                char charToRemove = inputUnemployment.back();
                                 inputUnemployment.pop_back();
+
+                                charCounts[charToRemove]--;
+                                if(charCounts[charToRemove] == 0){
+                                    uniqueInputs.erase(charToRemove); // removing from set
+                                }
                             }
-                        } else {
-                            inputUnemployment += static_cast<char>(event.text.unicode);
+                        } else if(inputUnemployment.empty()){
+                            inputUnemployment += enteredChar;
+                            uniqueInputs.insert(enteredChar);
+                            charCounts[enteredChar]++;
                         }
                         outputUnemployment.setString(inputUnemployment);
                         outputUnemployment.setPosition(textBoxUnemployment.getPosition().x + 10, textBoxUnemployment.getPosition().y + 10);
@@ -197,10 +227,18 @@ void Window::windowEvents() {
                     else if(activeBox == Income ){
                         if(enteredChar == 8){
                             if(!inputIncome.empty()){
+                                char charToRemove = inputIncome.back();
                                 inputIncome.pop_back();
+
+                                charCounts[charToRemove]--;
+                                if(charCounts[charToRemove] == 0){
+                                    uniqueInputs.erase(charToRemove); // removing from set
+                                }
                             }
-                        } else {
-                            inputIncome += static_cast<char>(event.text.unicode);
+                        } else if(inputIncome.empty()){
+                            inputIncome += enteredChar;
+                            uniqueInputs.insert(enteredChar);
+                            charCounts[enteredChar]++;
                         }
                         outputIncome.setString(inputIncome);
                         outputIncome.setPosition(textBoxIncome.getPosition().x + 10, textBoxIncome.getPosition().y + 10);
@@ -213,17 +251,14 @@ void Window::windowEvents() {
             }
     }
 }
+
 void Window::draw()
 {
-    if(activeBox == Submit)
-    {
+    if(showResults){
         screen.clear(sf::Color::White);
         screen.draw(resultTitle);
         screen.display();
-
-    }
-    else
-    {
+    } else {
         screen.clear(sf::Color::White);
         screen.draw(screenTitle);
         screen.draw(promptPoverty);
