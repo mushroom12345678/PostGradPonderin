@@ -155,54 +155,62 @@ void Window::windowEvents() {
                 activeBox = None;
             }
         }
-            if (event.type == sf::Event::TextEntered)
-            {
-                if(activeBox==Poverty)
-                {
-                    if (event.text.unicode < 128) {
-                        inputPoverty += static_cast<char>(event.text.unicode);
-                    }
-                    outputPoverty.setString(inputPoverty);
-                    outputPoverty.setPosition(textBoxPoverty.getPosition().x + 10, textBoxPoverty.getPosition().y + 10);
-                }
-                else if(activeBox == Education)
-                {
-                    if (event.text.unicode < 128)
-                    {
-                        inputEducation += static_cast<char>(event.text.unicode);
-                    }
-                    outputEducation.setString(inputEducation);
-                    outputEducation.setPosition(textBoxEducation.getPosition().x + 10, textBoxEducation.getPosition().y + 10);
-                }
-                else if(activeBox == Unemployment)
-                {
-                    if (event.text.unicode < 128)
-                    {
-                        inputUnemployment += static_cast<char>(event.text.unicode);
-                    }
-                    outputUnemployment.setString(inputUnemployment);
-                    outputUnemployment.setPosition(textBoxUnemployment.getPosition().x + 10, textBoxUnemployment.getPosition().y + 10);
-                }
-                else if(activeBox ==Income )
-                {
-                    if (event.text.unicode < 128)
-                    {
-                        inputIncome += static_cast<char>(event.text.unicode);
-                    }
-                    outputIncome.setString(inputIncome);
-                    outputIncome.setPosition(textBoxIncome.getPosition().x + 10, textBoxIncome.getPosition().y + 10);
-                }
-                else if(activeBox == Submit)
-                {
-                    //clear();
-                }
 
+
+            if (event.type == sf::Event::TextEntered){
+                if ((event.text.unicode >= '1' && event.text.unicode <= '4') || event.text.unicode == 8){
+                    char enteredChar = static_cast<char>(event.text.unicode);
+                    if(activeBox==Poverty){
+                        if(enteredChar == 8){
+                            if(!inputPoverty.empty()){
+                                inputPoverty.pop_back();
+                            }
+                        } else {
+                            inputPoverty += enteredChar;
+                        }
+
+                        outputPoverty.setString(inputPoverty);
+                        outputPoverty.setPosition(textBoxPoverty.getPosition().x + 10, textBoxPoverty.getPosition().y + 10);
+                    }
+                    else if(activeBox == Education){
+                        if(enteredChar == 8){
+                            if(!inputEducation.empty()){
+                                inputEducation.pop_back();
+                            }
+                        } else {
+                            inputEducation += enteredChar;
+                        }
+                        outputEducation.setString(inputEducation);
+                        outputEducation.setPosition(textBoxEducation.getPosition().x + 10, textBoxEducation.getPosition().y + 10);
+                    }
+                    else if(activeBox == Unemployment){
+                        if(enteredChar == 8){
+                            if(!inputUnemployment.empty()){
+                                inputUnemployment.pop_back();
+                            }
+                        } else {
+                            inputUnemployment += static_cast<char>(event.text.unicode);
+                        }
+                        outputUnemployment.setString(inputUnemployment);
+                        outputUnemployment.setPosition(textBoxUnemployment.getPosition().x + 10, textBoxUnemployment.getPosition().y + 10);
+                    }
+                    else if(activeBox == Income ){
+                        if(enteredChar == 8){
+                            if(!inputIncome.empty()){
+                                inputIncome.pop_back();
+                            }
+                        } else {
+                            inputIncome += static_cast<char>(event.text.unicode);
+                        }
+                        outputIncome.setString(inputIncome);
+                        outputIncome.setPosition(textBoxIncome.getPosition().x + 10, textBoxIncome.getPosition().y + 10);
+                    }
+                    else if(activeBox == Submit)
+                    {
+                        //clear();
+                    }
+                }
             }
-        //}
-
-
-
-        //other events like buttons pressed will be handled here
     }
 }
 void Window::draw()
