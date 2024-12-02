@@ -23,7 +23,9 @@ add_executable(PostGradPonderin
         Window.cpp
         Window.cpp
         HeapSort.h
-        HeapSort.cpp)
+        HeapSort.cpp
+        Counties.cpp
+        Counties.h)
 target_link_libraries(PostGradPonderin PRIVATE sfml-graphics)
 target_compile_features(PostGradPonderin PRIVATE cxx_std_14)
 
