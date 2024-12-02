@@ -15,8 +15,6 @@ FetchContent_MakeAvailable(SFML)
 
 add_executable(PostGradPonderin
         main.cpp
-        County.h
-        County.cpp
         HeapSort.h
         HeapSort.cpp
         Window.h
