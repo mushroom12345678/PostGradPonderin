@@ -4,7 +4,7 @@
 // code sourced from lecture pseudocode and help from https://www.geeksforgeeks.org/heap-sort/ and https://www.geeksforgeeks.org/switch-statement-in-cpp/
 #include "HeapSort.h"
 
-void HeapSort::heapSort(std::vector<County> &arr, int n, HeapSort::sortParameters param) {
+void HeapSort::heapSort(std::vector<Counties> &arr, int n, HeapSort::sortParameters param) {
     for(int i = n/2 - 1; i>=0; i--){ //building heap in place
         heapifyDown(arr, n, i, param);
     }
@@ -15,7 +15,7 @@ void HeapSort::heapSort(std::vector<County> &arr, int n, HeapSort::sortParameter
     }
 }
 
-void HeapSort::heapifyDown(std::vector<County> &arr, int n, int i, HeapSort::sortParameters param) {
+void HeapSort::heapifyDown(std::vector<Counties> &arr, int n, int i, HeapSort::sortParameters param) {
     int largest = i; //largest is the root
     int leftChild = 2 * i + 1;
     int rightChild = 2 * i + 2;
@@ -34,19 +34,19 @@ void HeapSort::heapifyDown(std::vector<County> &arr, int n, int i, HeapSort::sor
     }
 }
 
-bool HeapSort::compareByParameter(County &county1, County &county2, HeapSort::sortParameters param) {
+bool HeapSort::compareByParameter(Counties &county1, Counties &county2, HeapSort::sortParameters param) {
     switch(param){
         case medianIncome:
-            return county1.medianHouseholdIncome > county2.medianHouseholdIncome;
+            return county1.getIncome() > county2.getIncome();
 
         case poverty:
-            return county1.percentPoverty > county2.percentPoverty;
+            return county1.getPoverty() > county2.getPoverty();
 
         case unemployment:
-            return county1.unemployment > county2.unemployment;
+            return county1.getUnemployment() > county2.getUnemployment();
 
         case education:
-            return county1.HSDiplomaPercent > county2.HSDiplomaPercent;
+            return county1.getEducation() > county2.getEducation();
     }
 
 }
