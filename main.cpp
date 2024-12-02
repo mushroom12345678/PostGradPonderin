@@ -68,8 +68,9 @@ vector<Counties> parseCSV(string filename) {
 }
 
 int main() {
-    vector<Counties> counties = parseCSV("DSAProj3Data.csv");
-    counties[2].print();
+    vector<Counties> counties = parseCSV("resources/DSAProj3Data.csv");
+    cout << "printing county data" << endl;
+    counties[1].print();
     Window screen("post grad ponderin", 800, 800);
     screen.run();
     std::cout << "Hello, World!" << std::endl;
