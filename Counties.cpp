@@ -185,7 +185,7 @@ void Counties::setNormalizedIncome(float val)
         normalizedIncome = 1;
     }
 }
-void Counties::setScores(vector<Counties> counties, string outputUnemployment, string outputIncome, string outputEducation, string outputPoverty)
+void Counties::setScores(vector<Counties>& counties, string outputUnemployment, string outputIncome, string outputEducation, string outputPoverty)
 {
     for(int i = 0; i < counties.size(); i++)
     {
