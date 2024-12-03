@@ -69,17 +69,22 @@ vector<Counties> parseCSV(string filename) {
 }
 
 int main() {
-    vector<Counties> counties = parseCSV("resources/DSAProj3Data.csv");
-    cout << "printing county data" << endl;
-    counties[0].print();
-    Window screen("post grad ponderin", 800, 800);
-    screen.run();
-    HeapSort heapsortobj;
+    vector<Counties> counties = parseCSV("resources/DSAProj3Data.csv"); //parse data
+    Window screen("post grad ponderin", 800, 800); //makes screen
+    screen.run(); // runs window program
+
+    HeapSort heapsortobj; //creates heapsort object
+
+    //in between each sort we need to update the scores of the counties
     heapsortobj.heapSort(counties, counties.size(), HeapSort::poverty);
+    heapsortobj.heapSort(counties, counties.size(), HeapSort::unemployment);
+    heapsortobj.heapSort(counties, counties.size(), HeapSort::education);
+    heapsortobj.heapSort(counties, counties.size(), HeapSort::medianIncome);
+
     for(auto county: counties){
         cout << county.getPoverty() << endl;
     }
-    std::cout << "Hello, World!" << std::endl;
+
     return 0;
 }
 
