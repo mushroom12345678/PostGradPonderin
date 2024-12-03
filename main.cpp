@@ -84,6 +84,10 @@ int main() {
     Counties counties1;
     counties1.setScores(counties,unemploymentMultiplier , incomeMultiplier , educationMultiplier, povertyMultiplier);
 
+    heapsortobj.heapSort(counties, counties.size());
+    for(auto county: counties){
+        cout << county.getName() << " " << county.getScore() << endl;
+    }
     return 0;
 }
 
