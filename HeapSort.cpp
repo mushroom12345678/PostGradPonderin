@@ -16,7 +16,7 @@ void HeapSort::heapSort(std::vector<Counties> &vect, int n, HeapSort::sortParame
     }
 
     //reverse the vector if it's a min heap parameter to produce a min heap
-    if(param == poverty || param == unemployment){
+    if(param == poverty || param == unemployment || param == education){
         cout << "reversing by param " << param << endl;
         std::reverse(vect.begin(), vect.end());
     }

@@ -74,12 +74,12 @@ int main() {
     HeapSort heapsortobj; //creates heapsort object
 
     //in between each sort we need to update the scores of the counties
-    //heapsortobj.heapSort(counties, counties.size(), HeapSort::poverty);
+    heapsortobj.heapSort(counties, counties.size(), HeapSort::poverty);
     //heapsortobj.heapSort(counties, counties.size(), HeapSort::unemployment);
     //heapsortobj.heapSort(counties, counties.size(), HeapSort::education);
-    heapsortobj.heapSort(counties, counties.size(), HeapSort::medianIncome);
+    //heapsortobj.heapSort(counties, counties.size(), HeapSort::medianIncome);
     for(auto county: counties){
-        cout << county.getIncome() << endl;
+        cout << county.getName() << " " << county.getPoverty() << endl;
     }
 
     //cout << counties[0].getIncome() << endl;
