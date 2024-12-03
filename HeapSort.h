@@ -12,7 +12,7 @@
 class HeapSort {
 public:
     enum sortParameters{
-        medianIncome, poverty, unemployment, education
+        medianIncome, poverty, unemployment, education, score
     };
     void heapSort(std::vector<Counties>& arr, int n, HeapSort::sortParameters param);
     void heapifyDown(std::vector<Counties>& vect, int n, int i, HeapSort::sortParameters param);

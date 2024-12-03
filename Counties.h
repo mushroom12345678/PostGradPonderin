@@ -47,6 +47,7 @@ public:
     float getUnemployment();
     float getEducation();
     float getIncome();
+    float getScore();
 
 private:
     int FIPSCode = 0;

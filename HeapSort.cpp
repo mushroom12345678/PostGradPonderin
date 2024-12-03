@@ -53,6 +53,9 @@ bool HeapSort::compareByParameter(Counties &county1, Counties &county2, HeapSort
 
         case education:
             return county1.getEducation() > county2.getEducation();
+
+        case score:
+            return county1.getScore() > county2.getScore();
     }
 
 }
