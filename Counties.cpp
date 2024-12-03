@@ -166,23 +166,23 @@ void Counties::setNormalizedIncome(float val)
     }
     else if (val > 100000)
     {
-        normalizedUnemployment = 5;
+        normalizedIncome = 5;
     }
     else if(val <= 100000 && val > 80000)
     {
-        normalizedUnemployment = 4;
+        normalizedIncome = 4;
     }
     else if(val <= 80000 && val > 60000)
     {
-        normalizedUnemployment = 3;
+        normalizedIncome = 3;
     }
     else if(val <= 60000 && val > 40000)
     {
-        normalizedUnemployment = 2;
+        normalizedIncome = 2;
     }
     else
     {
-        normalizedUnemployment = 1;
+        normalizedIncome = 1;
     }
 }
 void Counties::setScores(vector<Counties> counties, string outputUnemployment, string outputIncome, string outputEducation, string outputPoverty)
