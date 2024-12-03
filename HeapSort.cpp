@@ -15,6 +15,8 @@ void HeapSort::heapSort(std::vector<Counties> &vect, int n) {
         heapifyDown(vect, i ,0);
     }
 
+    // reverse to get descending order
+    std::reverse(vect.begin(), vect.end());
 }
 
 void HeapSort::heapifyDown(std::vector<Counties> &vect, int n, int i) {
