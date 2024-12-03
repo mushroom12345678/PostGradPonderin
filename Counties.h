@@ -52,6 +52,10 @@ public:
     void setNormalizedUnemployment(float val);
     void setNormalizedEducation(float val);
     void setNormalizedIncome(float val);
+    float getNormalizedPoverty();
+    float getNormalizedUnemployment();
+    float getNormalizedEducation();
+    float getNormalizedIncome();
     void setScores(vector<Counties>& counties, string outputUnemployment, string outputIncome, string outputEducation, string outputPoverty);
     float getScore();
 

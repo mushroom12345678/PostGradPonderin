@@ -8,6 +8,11 @@ float Counties::getUnemployment() { return unemploymentRate;}
 float Counties::getEducation() { return HSDiplomaPercent;}
 float Counties::getIncome() { return medianHouseholdIncome;}
 float Counties::getScore() {return score;}
+float Counties::getNormalizedEducation() {return normalizedEducation;}
+float Counties::getNormalizedIncome() {return normalizedIncome;}
+float Counties::getNormalizedUnemployment() {return normalizedUnemployment;}
+float Counties::getNormalizedPoverty() {return normalizedPoverty;}
+void Counties::setScore(float value) {score = value;}
 string Counties::getName() { return countyName;}
 string Counties::getState() {return state;}
 void Counties::setFIPSCode(int fips) { FIPSCode = fips; }
@@ -185,6 +190,7 @@ void Counties::setNormalizedIncome(float val)
         normalizedIncome = 1;
     }
 }
+/*
 void Counties::setScores(vector<Counties>& counties, string outputUnemployment, string outputIncome, string outputEducation, string outputPoverty)
 {
     for(int i = 0; i < counties.size(); i++)
@@ -202,5 +208,6 @@ void Counties::setScores(vector<Counties>& counties, string outputUnemployment, 
         counties[i].score = score;
     }
 }
+ */
 
 

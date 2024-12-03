@@ -67,7 +67,23 @@ vector<Counties> parseCSV(string filename) {
     file.close();
     return countiesList;
 }
+void setScores(vector<Counties>& counties, string outputUnemployment, string outputIncome, string outputEducation, string outputPoverty)
+{
+    for(int i = 0; i < counties.size(); i++)
+    {
+        counties[i].setNormalizedPoverty(counties[i].getPoverty());
+        counties[i].setNormalizedEducation(counties[i].getEducation());
+        counties[i].setNormalizedIncome(counties[i].getIncome());
+        counties[i].setNormalizedUnemployment(counties[i].getUnemployment());
 
+        float povVal = counties[i].getNormalizedEducation() * stoi(outputPoverty);
+        float unempVal = counties[i].getNormalizedUnemployment() * stoi(outputUnemployment);
+        float eduVal = counties[i].getNormalizedEducation() * stoi(outputEducation);
+        float incVal = counties[i].getNormalizedIncome() * stoi(outputIncome); // regulates number cause unemployment is in hundred thousands
+        float score = povVal + unempVal + eduVal + incVal;
+        counties[i].setScore(score);
+    }
+}
 int main() {
     vector<Counties> counties = parseCSV("resources/DSAProj3Data.csv"); //parse data
 
@@ -81,8 +97,8 @@ int main() {
     string educationMultiplier = screen.getInputEducation();
     string povertyMultiplier = screen.getInputPoverty();
 
-    Counties counties1;
-    counties1.setScores(counties,unemploymentMultiplier , incomeMultiplier , educationMultiplier, povertyMultiplier);
+
+    setScores(counties,unemploymentMultiplier , incomeMultiplier , educationMultiplier, povertyMultiplier);
 
     heapsortobj.heapSort(counties, counties.size());
     for(auto county: counties){
@@ -92,19 +108,3 @@ int main() {
 }
 
 
-
-map<string, float> getScores(vector<Counties> counties, string outputUnemployment, string outputIncome, string outputEducation, string outputPoverty)
-{
-    map<string, float> result;
-    for(int i = 0; i < counties.size(); i++)
-    {
-        float povVal = (counties[i].getPoverty()) * stoi(outputPoverty);
-        float unempVal = counties[i].getUnemployment() * stoi(outputUnemployment);
-        float eduVal = counties[i].getEducation() * stoi(outputEducation);
-        float incVal = (counties[i].getIncome() / 10000)* stoi(outputIncome); // regulates number cause unemployment is in hundred thousands
-        float score = povVal + unempVal + eduVal + incVal;
-        string name = counties[i].getName();
-        result[name] = score;
-    }
-    return result;
-}
