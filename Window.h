@@ -53,6 +53,10 @@ public:
     void windowEvents(); //handles window events like button press
     void draw(); //draws all elements
 
+    string getInputUnemployment();
+    string getInputPoverty();
+    string getInputEducation();
+    string getInputIncome();
 
     Window(const std::string& title, int width, int height, vector<Counties>& vect);
     void run();

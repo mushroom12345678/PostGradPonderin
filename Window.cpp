@@ -259,6 +259,23 @@ void Window::windowEvents() {
     }
 }
 
+string Window::getInputEducation()
+{
+    return inputEducation;
+}
+string Window::getInputIncome()
+{
+    return inputIncome;
+}
+string Window::getInputUnemployment()
+{
+    return inputUnemployment;
+}
+string Window::getInputPoverty()
+{
+    return inputPoverty;
+}
+
 void Window::draw()
 {
     if(showResults){

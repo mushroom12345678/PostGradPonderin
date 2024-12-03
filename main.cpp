@@ -87,6 +87,14 @@ int main() {
     Window screen("post grad ponderin", 800, 800, counties); //makes screen
     screen.run(); // runs window program
 
+    string unemploymentMultiplier = screen.getInputUnemployment();
+    string incomeMultiplier = screen.getInputIncome();
+    string educationMultiplier = screen.getInputEducation();
+    string povertyMultiplier = screen.getInputPoverty();
+
+    Counties counties1;
+    counties1.setScores(counties,unemploymentMultiplier , incomeMultiplier , educationMultiplier, povertyMultiplier)
+
     return 0;
 }
 
