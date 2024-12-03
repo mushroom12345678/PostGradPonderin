@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 class Counties {
@@ -48,6 +48,11 @@ public:
     float getUnemployment();
     float getEducation();
     float getIncome();
+    void setNormalizedPoverty(float val);
+    void setNormalizedUnemployment(float val);
+    void setNormalizedEducation(float val);
+    void setNormalizedIncome(float val);
+    void setScores(vector<Counties> counties, string outputUnemployment, string outputIncome, string outputEducation, string outputPoverty);
     float getScore();
 
 private:
@@ -82,6 +87,10 @@ private:
     float someCollege1970 = -1.0f;
     float fourYearsCollege1970 = -1.0f;
     float score = -1.0f;
+    float normalizedPoverty;
+    float normalizedUnemployment;
+    float normalizedEducation;
+    float normalizedIncome;
 };
 
 #endif // COUNTIES_H

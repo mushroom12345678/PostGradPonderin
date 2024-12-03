@@ -1,4 +1,6 @@
 #include "Counties.h"
+#include <map>
+#include <vector>
 using namespace std;
 
 float Counties::getPoverty() { return povertyPercent;}
@@ -71,6 +73,134 @@ void Counties::print() {
     cout << "Some College (1970): " << someCollege1970 << endl;
     cout << "Four Years College (1970): " << fourYearsCollege1970 << endl << endl;
 
+}
+void Counties::setNormalizedPoverty(float val)
+{
+    if(val == -1)
+    {
+        normalizedPoverty = 0;
+    }
+    else if(val < 7)
+    {
+        normalizedPoverty = 5;
+    }
+    else if(val >= 7 && val < 11)
+    {
+        normalizedPoverty = 4;
+    }
+    else if(val >= 11 && val < 15)
+    {
+        normalizedPoverty = 3;
+    }
+    else if(val>= 15 && val < 19)
+    {
+        normalizedPoverty = 2;
+    }
+    else
+    {
+        normalizedPoverty = 1;
+    }
+}
+
+void Counties::setNormalizedEducation(float val)
+{
+    if(val == -1)
+    {
+        normalizedEducation = 0;
+    }
+    else if (val < 20)
+    {
+        normalizedEducation = 5;
+    }
+    else if(val >= 20 && val < 27)
+    {
+        normalizedEducation = 4;
+    }
+    else if(val >= 27 && val < 34)
+    {
+        normalizedEducation = 3;
+    }
+    else if(val>= 34 && val < 41)
+    {
+        normalizedEducation = 2;
+    }
+    else
+    {
+        normalizedEducation = 1;
+    }
+}
+
+void Counties::setNormalizedUnemployment(float val)
+{
+    if(val == -1)
+    {
+        normalizedUnemployment = 0;
+    }
+    else if (val < 2)
+    {
+        normalizedUnemployment = 5;
+    }
+    else if(val >= 2 && val < 3)
+    {
+        normalizedUnemployment = 4;
+    }
+    else if(val >= 3 && val < 4)
+    {
+        normalizedUnemployment = 3;
+    }
+    else if(val>= 4 && val < 5)
+    {
+        normalizedUnemployment = 2;
+    }
+    else
+    {
+        normalizedUnemployment = 1;
+    }
+}
+
+void Counties::setNormalizedIncome(float val)
+{
+    if(val == -1)
+    {
+        normalizedIncome = 0;
+    }
+    else if (val > 100000)
+    {
+        normalizedUnemployment = 5;
+    }
+    else if(val <= 100000 && val > 80000)
+    {
+        normalizedUnemployment = 4;
+    }
+    else if(val <= 80000 && val > 60000)
+    {
+        normalizedUnemployment = 3;
+    }
+    else if(val <= 60000 && val > 40000)
+    {
+        normalizedUnemployment = 2;
+    }
+    else
+    {
+        normalizedUnemployment = 1;
+    }
+}
+void Counties::setScores(vector<Counties> counties, string outputUnemployment, string outputIncome, string outputEducation, string outputPoverty)
+{
+    for(int i = 0; i < counties.size(); i++)
+    {
+        setNormalizedPoverty(counties[i].povertyPercent);
+        setNormalizedEducation(counties[i].lessThanHSDiploma1970);
+        setNormalizedIncome(counties[i].medianHouseholdIncome);
+        setNormalizedUnemployment(counties[i].unemploymentRate);
+
+        float povVal = counties[i].normalizedEducation * stoi(outputPoverty);
+        float unempVal = counties[i].normalizedUnemployment * stoi(outputUnemployment);
+        float eduVal = counties[i].normalizedEducation * stoi(outputEducation);
+        float incVal = counties[i].normalizedIncome * stoi(outputIncome); // regulates number cause unemployment is in hundred thousands
+        float score = povVal + unempVal + eduVal + incVal;
+        counties[i].score = score;
+    }
 }
 
 void Counties::setScore(float value) {
