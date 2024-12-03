@@ -73,17 +73,6 @@ int main() {
 
     HeapSort heapsortobj; //creates heapsort object
 
-    //in between each sort we need to update the scores of the counties
-    heapsortobj.heapSort(counties, counties.size(), HeapSort::poverty);
-    //heapsortobj.heapSort(counties, counties.size(), HeapSort::unemployment);
-    //heapsortobj.heapSort(counties, counties.size(), HeapSort::education);
-    //heapsortobj.heapSort(counties, counties.size(), HeapSort::medianIncome);
-    for(auto county: counties){
-        cout << county.getName() << " " << county.getPoverty() << endl;
-    }
-
-    //cout << counties[0].getIncome() << endl;
-
     Window screen("post grad ponderin", 800, 800, counties); //makes screen
     screen.run(); // runs window program
 
@@ -93,7 +82,7 @@ int main() {
     string povertyMultiplier = screen.getInputPoverty();
 
     Counties counties1;
-    counties1.setScores(counties,unemploymentMultiplier , incomeMultiplier , educationMultiplier, povertyMultiplier)
+    counties1.setScores(counties,unemploymentMultiplier , incomeMultiplier , educationMultiplier, povertyMultiplier);
 
     return 0;
 }
