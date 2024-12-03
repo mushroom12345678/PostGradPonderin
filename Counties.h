@@ -56,6 +56,21 @@ public:
     float getNormalizedUnemployment();
     float getNormalizedEducation();
     float getNormalizedIncome();
+    float getLongitude();
+    float getLatitude();
+    float getUnder5();
+    float getUnder18();
+    float getOver65();
+    float getMedianAge();
+    float getFemale();
+    float getWhite();
+    float getBlack();
+    float getNative();
+    float getPacificIsland();
+    float getEnglish();
+    float getForeign();
+    float getVeteran();
+
     void setScores(vector<Counties>& counties, string outputUnemployment, string outputIncome, string outputEducation, string outputPoverty);
     float getScore();
 

@@ -91,7 +91,7 @@ int main() {
     HeapSort heapsortobj; //creates heapsort object
 
     Window screen("post grad ponderin", 800, 800, counties);
-    ResultWindow screen2("post grad ponderin", 800, 800, counties);
+    //ResultWindow screen2("Results", 800, 800, counties);
     screen.run(); // runs window program
 
     string unemploymentMultiplier = screen.getInputUnemployment();
@@ -106,7 +106,9 @@ int main() {
     for(auto county: counties){
         cout << county.getName() << " " << county.getScore() << endl;
     }
-    //screen2.run();
+
+    ResultWindow resultScreen("Results", 2000, 1000, counties); // Pass sorted vector
+    resultScreen.run();
     return 0;
 }
 

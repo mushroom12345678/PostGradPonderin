@@ -22,9 +22,9 @@ public:
     sf::Text instructions;
 
     sf::Text resultTitle;
-    sf::Text topResultCounty;
-    sf::Text topResultState;
-    sf::Text topResultPoverty;
+    sf::Text ResultCounty;
+    sf::Text ResultState;
+    sf::Text ResultPoverty;
     sf::Text topResultEduction;
     sf::Text topResultUnemployment;
     sf::Text topResultIncome;

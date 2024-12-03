@@ -14,27 +14,27 @@ Window::Window(const std::string &title, int width, int height, vector<Counties>
     }
 
     //configure text
-    topResultCounty.setFont(font);
-    topResultCounty.setString("Top Result: " + vect[0].getName());
-    topResultCounty.setCharacterSize(20);
-    topResultCounty.setFillColor(sf::Color::Black);
-    topResultCounty.setStyle(sf::Text::Bold);
-    topResultCounty.setPosition(80, 55);
+    ResultCounty.setFont(font);
+    ResultCounty.setString("Top Result: " + vect[0].getName());
+    ResultCounty.setCharacterSize(20);
+    ResultCounty.setFillColor(sf::Color::Black);
+    ResultCounty.setStyle(sf::Text::Bold);
+    ResultCounty.setPosition(80, 55);
 
-    topResultState.setFont(font);
-    topResultState.setString("State: " + vect[0].getState());
-    topResultState.setCharacterSize(20);
-    topResultState.setFillColor(sf::Color::Black);
-    topResultState.setStyle(sf::Text::Bold);
-    topResultState.setPosition(80, 85);
-
-    topResultIncome.setFont(font);
-    //topResultIncome.setString("State: " + vect[0].getIncome());
-    topResultIncome.setCharacterSize(20);
-    topResultIncome.setFillColor(sf::Color::Black);
-    topResultIncome.setStyle(sf::Text::Bold);
-    topResultIncome.setPosition(80, 85);
-
+    ResultState.setFont(font);
+    ResultState.setString("State: " + vect[0].getState());
+    ResultState.setCharacterSize(20);
+    ResultState.setFillColor(sf::Color::Black);
+    ResultState.setStyle(sf::Text::Bold);
+    ResultState.setPosition(80, 85);
+/*
+    ResultIncome.setFont(font);
+    ResultIncome.setString("State: " + vect[0].getIncome());
+    ResultIncome.setCharacterSize(20);
+    ResultIncome.setFillColor(sf::Color::Black);
+    ResultIncome.setStyle(sf::Text::Bold);
+    ResultIncome.setPosition(80, 85);
+*/
     resultTitle.setFont(font);
     resultTitle.setString("You should move to...");
     resultTitle.setCharacterSize(30);
@@ -50,7 +50,7 @@ Window::Window(const std::string &title, int width, int height, vector<Counties>
     screenTitle.setPosition(250, 10);
 
     instructions.setFont(font);
-    instructions.setString("Assign each criteria a score of 1 through 4.\n1 is the highest ranking, and 4 is the lowest. \nYou can only use each number once.");
+    instructions.setString("Assign each criteria a score of 1 through 4.\n4 is the highest ranking, and 1 is the lowest. \nYou can only use each number once.");
     instructions.setCharacterSize(18);
     instructions.setStyle(sf::Text::Bold);
     instructions.setFillColor(sf::Color::Black);
@@ -175,6 +175,7 @@ void Window::windowEvents() {
                     cout << "unique inputs is 4";
                     showResults = true;
                 }
+                screen.close();
                 cout << "input size: " << uniqueInputs.size();
             }
             else
@@ -266,7 +267,7 @@ void Window::windowEvents() {
                     }
                     else if(activeBox == Submit)
                     {
-                        //clear();
+                        screen.close();
                     }
                 }
             }
@@ -292,13 +293,6 @@ string Window::getInputPoverty()
 
 void Window::draw()
 {
-    if(showResults){
-        screen.clear(sf::Color::White);
-        screen.draw(resultTitle);
-        screen.draw(topResultCounty);
-        screen.draw(topResultState);
-        screen.display();
-    } else {
         screen.clear(sf::Color::White);
         screen.draw(screenTitle);
         screen.draw(promptPoverty);
@@ -319,7 +313,6 @@ void Window::draw()
         screen.display();
     }
 
-}
 
 void Window::run(){
     while(screen.isOpen()){

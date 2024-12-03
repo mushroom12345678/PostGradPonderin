@@ -11,6 +11,21 @@ float Counties::getScore() {return score;}
 float Counties::getNormalizedEducation() {return normalizedEducation;}
 float Counties::getNormalizedIncome() {return normalizedIncome;}
 float Counties::getNormalizedUnemployment() {return normalizedUnemployment;}
+float Counties::getLongitude() {return longitude;}
+float Counties::getLatitude() {return latitude;}
+float Counties::getUnder5() {return ageUnder5Percent ;}
+float Counties::getUnder18() {return latitude;}
+float Counties::getOver65() {return latitude;}
+float Counties::getMedianAge() {return medianAge;}
+float Counties::getFemale() {return femalePercent;}
+float Counties::getWhite() {return whitePercent;}
+float Counties::getBlack() {return blackPercent;}
+float Counties::getNative() {return nativePercent;}
+float Counties::getPacificIsland() {return pacificIslandPercent;}
+float Counties::getEnglish() {return speakEnglishOnlyPercent;}
+float Counties::getForeign() {return foreignLanguageSpokenAtHomePercent;}
+float Counties::getVeteran() {return veteranPercent;}
+
 float Counties::getNormalizedPoverty() {return normalizedPoverty;}
 void Counties::setScore(float value) {score = value;}
 string Counties::getName() { return countyName;}
@@ -85,19 +100,68 @@ void Counties::setNormalizedPoverty(float val)
     {
         normalizedPoverty = 0;
     }
+    else if(val < 6)
+    {
+        normalizedPoverty = 17;
+    }
     else if(val < 7)
     {
-        normalizedPoverty = 5;
+        normalizedPoverty = 16;
     }
+    else if(val < 8)
+    {
+        normalizedPoverty = 15;
+    }
+    else if(val < 9)
+    {
+        normalizedPoverty = 14;
+    }
+    else if(val < 10)
+    {
+        normalizedPoverty = 13;
+    }
+
     else if(val < 11)
     {
-        normalizedPoverty = 4;
+        normalizedPoverty = 12;
+    }
+    else if(val < 12)
+    {
+        normalizedPoverty = 11;
+    }
+    else if(val < 13)
+    {
+        normalizedPoverty = 10;
+    }
+    else if(val < 14)
+    {
+        normalizedPoverty = 9;
     }
     else if(val < 15)
     {
-        normalizedPoverty = 3;
+        normalizedPoverty = 8;
+    }
+    else if(val < 16)
+    {
+        normalizedPoverty = 7 ;
+    }
+    else if(val < 17)
+    {
+        normalizedPoverty = 6 ;
+    }
+    else if(val < 18)
+    {
+        normalizedPoverty = 5;
     }
     else if(val < 19)
+    {
+        normalizedPoverty = 4;
+    }
+    else if(val < 20)
+    {
+        normalizedPoverty = 3;
+    }
+    else if(val < 21)
     {
         normalizedPoverty = 2;
     }
@@ -113,19 +177,67 @@ void Counties::setNormalizedEducation(float val)
     {
         normalizedEducation = 0;
     }
+    else if(val< 14)
+    {
+        normalizedEducation = 17;
+    }
+    else if(val< 16)
+    {
+        normalizedEducation = 16;
+    }
+    else if(val< 18)
+    {
+        normalizedEducation = 15;
+    }
     else if (val < 20)
     {
-        normalizedEducation = 5;
+        normalizedEducation = 14;
     }
-    else if(val < 27)
+    else if (val < 22)
     {
-        normalizedEducation = 4;
+        normalizedEducation = 13;
+    }
+    else if (val < 24)
+    {
+        normalizedEducation = 12;
+    }
+    else if (val < 26)
+    {
+        normalizedEducation = 11;
+    }
+    else if (val < 28)
+    {
+        normalizedEducation = 10;
+    }
+    else if (val < 30)
+    {
+        normalizedEducation = 9;
+    }
+    else if (val < 32)
+    {
+        normalizedEducation = 8;
     }
     else if(val < 34)
     {
+        normalizedEducation = 7;
+    }
+    else if(val < 36)
+    {
+        normalizedEducation = 6;
+    }
+    else if(val < 38)
+    {
+        normalizedEducation = 5;
+    }
+    else if(val < 40)
+    {
+        normalizedEducation = 4;
+    }
+    else if(val < 42)
+    {
         normalizedEducation = 3;
     }
-    else if(val < 41)
+    else if(val < 44)
     {
         normalizedEducation = 2;
     }
@@ -141,19 +253,67 @@ void Counties::setNormalizedUnemployment(float val)
     {
         normalizedUnemployment = 0;
     }
-    else if (val < 2)
+    else if (val < 0.5)
     {
-        normalizedUnemployment = 5;
+        normalizedUnemployment = 17;
+    }
+    else if(val < 1)
+    {
+        normalizedUnemployment = 16;
+    }
+    else if(val < 1.5)
+    {
+        normalizedUnemployment = 15 ;
+    }
+    else if(val < 2)
+    {
+        normalizedUnemployment = 14;
+    }
+    else if(val < 2.5)
+    {
+        normalizedUnemployment = 13;
     }
     else if(val < 3)
     {
-        normalizedUnemployment = 4;
+        normalizedUnemployment = 12;
+    }
+    else if(val < 3.5)
+    {
+        normalizedUnemployment = 11;
     }
     else if(val < 4)
     {
-        normalizedUnemployment = 3;
+        normalizedUnemployment = 10;
+    }
+    else if(val < 4.5)
+    {
+        normalizedUnemployment = 9;
     }
     else if(val < 5)
+    {
+        normalizedUnemployment = 8;
+    }
+    else if(val < 5.5)
+    {
+        normalizedUnemployment = 7;
+    }
+    else if(val < 6)
+    {
+        normalizedUnemployment = 6;
+    }
+    else if(val < 6.5)
+    {
+        normalizedUnemployment = 5;
+    }
+    else if(val < 7)
+    {
+        normalizedUnemployment = 4;
+    }
+    else if(val < 7.5)
+    {
+        normalizedUnemployment = 3;
+    }
+    else if(val < 8)
     {
         normalizedUnemployment = 2;
     }
@@ -169,15 +329,63 @@ void Counties::setNormalizedIncome(float val)
     {
         normalizedIncome = 0;
     }
-    else if (val > 100000)
+    else if (val > 140000)
     {
-        normalizedIncome = 5;
+        normalizedIncome = 17;
+    }
+    else if(val > 135000)
+    {
+        normalizedIncome = 16;
+    }
+    else if(val > 130000)
+    {
+        normalizedIncome = 15;
+    }
+    else if(val > 125000)
+    {
+        normalizedIncome = 14;
+    }
+    else if(val > 120000)
+    {
+        normalizedIncome = 13;
+    }
+    else if(val > 115000)
+    {
+        normalizedIncome = 12;
+    }
+    else if(val > 110000)
+    {
+        normalizedIncome = 11;
+    }
+    else if(val > 105000)
+    {
+        normalizedIncome = 10;
+    }
+    else if(val > 100000)
+    {
+        normalizedIncome = 9;
+    }
+    else if(val > 95000)
+    {
+        normalizedIncome = 8;
+    }
+    else if(val > 90000)
+    {
+        normalizedIncome = 7;
     }
     else if(val > 80000)
     {
-        normalizedIncome = 4;
+        normalizedIncome = 6;
+    }
+    else if(val > 70000)
+    {
+        normalizedIncome = 5;
     }
     else if(val > 60000)
+    {
+        normalizedIncome = 4;
+    }
+    else if(val > 50000)
     {
         normalizedIncome = 3;
     }
