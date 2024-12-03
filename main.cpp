@@ -1,5 +1,6 @@
 #include "Counties.h"
 #include "Window.h"
+#include "ResultWindow.h"
 #include "HeapSort.h"
 #include <fstream>
 #include <sstream>
@@ -89,7 +90,8 @@ int main() {
 
     HeapSort heapsortobj; //creates heapsort object
 
-    Window screen("post grad ponderin", 800, 800, counties); //makes screen
+    Window screen("post grad ponderin", 800, 800, counties);
+    ResultWindow screen2("post grad ponderin", 800, 800, counties);
     screen.run(); // runs window program
 
     string unemploymentMultiplier = screen.getInputUnemployment();
@@ -104,6 +106,7 @@ int main() {
     for(auto county: counties){
         cout << county.getName() << " " << county.getScore() << endl;
     }
+    //screen2.run();
     return 0;
 }
 
