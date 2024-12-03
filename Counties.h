@@ -43,6 +43,7 @@ public:
     void setScore(float value);
     void print();
     string getName();
+    string getState();
     float getPoverty();
     float getUnemployment();
     float getEducation();

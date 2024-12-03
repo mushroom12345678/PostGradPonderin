@@ -7,6 +7,7 @@ float Counties::getEducation() { return HSDiplomaPercent;}
 float Counties::getIncome() { return medianHouseholdIncome;}
 float Counties::getScore() {return score;}
 string Counties::getName() { return countyName;}
+string Counties::getState() {return state;}
 void Counties::setFIPSCode(int fips) { FIPSCode = fips; }
 void Counties::setState(string stateName) { state = stateName; }
 void Counties::setCountyName(string name) { countyName = name; }
