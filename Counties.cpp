@@ -203,6 +203,4 @@ void Counties::setScores(vector<Counties> counties, string outputUnemployment, s
     }
 }
 
-void Counties::setScore(float value) {
-    score += value;
-}
+

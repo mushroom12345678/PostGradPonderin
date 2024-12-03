@@ -21,6 +21,20 @@ Window::Window(const std::string &title, int width, int height, vector<Counties>
     topResultCounty.setStyle(sf::Text::Bold);
     topResultCounty.setPosition(80, 55);
 
+    topResultState.setFont(font);
+    topResultState.setString("State: " + vect[0].getState());
+    topResultState.setCharacterSize(20);
+    topResultState.setFillColor(sf::Color::Black);
+    topResultState.setStyle(sf::Text::Bold);
+    topResultState.setPosition(80, 85);
+
+    topResultIncome.setFont(font);
+    //topResultIncome.setString("State: " + vect[0].getIncome());
+    topResultIncome.setCharacterSize(20);
+    topResultIncome.setFillColor(sf::Color::Black);
+    topResultIncome.setStyle(sf::Text::Bold);
+    topResultIncome.setPosition(80, 85);
+
     resultTitle.setFont(font);
     resultTitle.setString("You should move to...");
     resultTitle.setCharacterSize(30);
@@ -282,6 +296,7 @@ void Window::draw()
         screen.clear(sf::Color::White);
         screen.draw(resultTitle);
         screen.draw(topResultCounty);
+        screen.draw(topResultState);
         screen.display();
     } else {
         screen.clear(sf::Color::White);
