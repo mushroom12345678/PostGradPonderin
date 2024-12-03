@@ -1,5 +1,6 @@
 #include "Counties.h"
 #include "Window.h"
+#include "HeapSort.h"
 #include <fstream>
 #include <sstream>
 #include <vector>
@@ -70,9 +71,14 @@ vector<Counties> parseCSV(string filename) {
 int main() {
     vector<Counties> counties = parseCSV("resources/DSAProj3Data.csv");
     cout << "printing county data" << endl;
-    counties[1].print();
+    counties[0].print();
     Window screen("post grad ponderin", 800, 800);
     screen.run();
+    HeapSort heapsortobj;
+    heapsortobj.heapSort(counties, counties.size(), HeapSort::poverty);
+    for(auto county: counties){
+        cout << county.getPoverty() << endl;
+    }
     std::cout << "Hello, World!" << std::endl;
     return 0;
 }

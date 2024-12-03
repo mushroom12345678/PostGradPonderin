@@ -15,7 +15,7 @@ public:
         medianIncome, poverty, unemployment, education
     };
     void heapSort(std::vector<Counties>& arr, int n, HeapSort::sortParameters param);
-    void heapifyDown(std::vector<Counties>& arr, int n, int i, HeapSort::sortParameters param);
+    void heapifyDown(std::vector<Counties>& vect, int n, int i, HeapSort::sortParameters param);
     bool compareByParameter(Counties& county1, Counties& county2, sortParameters param);
 };
 

@@ -70,3 +70,7 @@ void Counties::print() {
     cout << "Four Years College (1970): " << fourYearsCollege1970 << endl << endl;
 
 }
+
+void Counties::setScore(float value) {
+    score += value;
+}
