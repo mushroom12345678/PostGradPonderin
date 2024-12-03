@@ -89,15 +89,15 @@ void Counties::setNormalizedPoverty(float val)
     {
         normalizedPoverty = 5;
     }
-    else if(val >= 7 && val < 11)
+    else if(val < 11)
     {
         normalizedPoverty = 4;
     }
-    else if(val >= 11 && val < 15)
+    else if(val < 15)
     {
         normalizedPoverty = 3;
     }
-    else if(val>= 15 && val < 19)
+    else if(val < 19)
     {
         normalizedPoverty = 2;
     }
@@ -117,15 +117,15 @@ void Counties::setNormalizedEducation(float val)
     {
         normalizedEducation = 5;
     }
-    else if(val >= 20 && val < 27)
+    else if(val < 27)
     {
         normalizedEducation = 4;
     }
-    else if(val >= 27 && val < 34)
+    else if(val < 34)
     {
         normalizedEducation = 3;
     }
-    else if(val>= 34 && val < 41)
+    else if(val < 41)
     {
         normalizedEducation = 2;
     }
@@ -145,15 +145,15 @@ void Counties::setNormalizedUnemployment(float val)
     {
         normalizedUnemployment = 5;
     }
-    else if(val >= 2 && val < 3)
+    else if(val < 3)
     {
         normalizedUnemployment = 4;
     }
-    else if(val >= 3 && val < 4)
+    else if(val < 4)
     {
         normalizedUnemployment = 3;
     }
-    else if(val>= 4 && val < 5)
+    else if(val < 5)
     {
         normalizedUnemployment = 2;
     }
@@ -173,15 +173,15 @@ void Counties::setNormalizedIncome(float val)
     {
         normalizedIncome = 5;
     }
-    else if(val <= 100000 && val > 80000)
+    else if(val > 80000)
     {
         normalizedIncome = 4;
     }
-    else if(val <= 80000 && val > 60000)
+    else if(val > 60000)
     {
         normalizedIncome = 3;
     }
-    else if(val <= 60000 && val > 40000)
+    else if(val > 40000)
     {
         normalizedIncome = 2;
     }
@@ -190,24 +190,4 @@ void Counties::setNormalizedIncome(float val)
         normalizedIncome = 1;
     }
 }
-/*
-void Counties::setScores(vector<Counties>& counties, string outputUnemployment, string outputIncome, string outputEducation, string outputPoverty)
-{
-    for(int i = 0; i < counties.size(); i++)
-    {
-        setNormalizedPoverty(counties[i].povertyPercent);
-        setNormalizedEducation(counties[i].lessThanHSDiploma1970);
-        setNormalizedIncome(counties[i].medianHouseholdIncome);
-        setNormalizedUnemployment(counties[i].unemploymentRate);
-
-        float povVal = counties[i].normalizedEducation * stoi(outputPoverty);
-        float unempVal = counties[i].normalizedUnemployment * stoi(outputUnemployment);
-        float eduVal = counties[i].normalizedEducation * stoi(outputEducation);
-        float incVal = counties[i].normalizedIncome * stoi(outputIncome); // regulates number cause unemployment is in hundred thousands
-        float score = povVal + unempVal + eduVal + incVal;
-        counties[i].score = score;
-    }
-}
- */
-
 
