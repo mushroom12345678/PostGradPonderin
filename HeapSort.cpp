@@ -17,6 +17,7 @@ void HeapSort::heapSort(std::vector<Counties> &vect, int n, HeapSort::sortParame
 
     //reverse the vector if it's a min heap parameter to produce a min heap
     if(param == poverty || param == unemployment){
+        cout << "reversing by param " << param << endl;
         std::reverse(vect.begin(), vect.end());
     }
 }
@@ -43,7 +44,7 @@ void HeapSort::heapifyDown(std::vector<Counties> &vect, int n, int i, HeapSort::
 bool HeapSort::compareByParameter(Counties &county1, Counties &county2, HeapSort::sortParameters param) {
     switch(param){ //creates max heaps
         case medianIncome:
-            return county1.getIncome() > county2.getIncome();
+            return county1.getIncome() < county2.getIncome();
 
         case poverty:
             return county1.getPoverty() < county2.getPoverty(); //creates a min heap
@@ -52,10 +53,10 @@ bool HeapSort::compareByParameter(Counties &county1, Counties &county2, HeapSort
             return county1.getUnemployment() < county2.getUnemployment(); //creates a min heap
 
         case education:
-            return county1.getEducation() > county2.getEducation();
+            return county1.getEducation() < county2.getEducation();
 
         case score:
-            return county1.getScore() > county2.getScore();
+            return county1.getScore() < county2.getScore();
     }
 
 }

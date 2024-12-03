@@ -6,7 +6,7 @@
 #include <iostream>
 using namespace std;
 
-Window::Window(const std::string &title, int width, int height) {
+Window::Window(const std::string &title, int width, int height, vector<Counties>& vect) {
     screen.create(sf::VideoMode(width, height), title);
 
     if(!font.loadFromFile("resources/font.ttf")){
@@ -14,6 +14,13 @@ Window::Window(const std::string &title, int width, int height) {
     }
 
     //configure text
+    topResultCounty.setFont(font);
+    topResultCounty.setString("Top Result: " + vect[0].getName());
+    topResultCounty.setCharacterSize(20);
+    topResultCounty.setFillColor(sf::Color::Black);
+    topResultCounty.setStyle(sf::Text::Bold);
+    topResultCounty.setPosition(80, 55);
+
     resultTitle.setFont(font);
     resultTitle.setString("You should move to...");
     resultTitle.setCharacterSize(30);
@@ -257,6 +264,7 @@ void Window::draw()
     if(showResults){
         screen.clear(sf::Color::White);
         screen.draw(resultTitle);
+        screen.draw(topResultCounty);
         screen.display();
     } else {
         screen.clear(sf::Color::White);

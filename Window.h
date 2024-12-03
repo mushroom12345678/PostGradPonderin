@@ -6,6 +6,8 @@
 #define POSTGRADPONDERIN_WINDOW_H
 #include <SFML/Graphics.hpp>
 #include <set>
+#include "Counties.h"
+#pragma once
 using namespace std;
 
 class Window {
@@ -18,7 +20,14 @@ public:
     sf::Text promptUnemployment;
     sf::Text promptIncome;
     sf::Text instructions;
+
     sf::Text resultTitle;
+    sf::Text topResultCounty;
+    sf::Text topResultState;
+    sf::Text topResultPoverty;
+    sf::Text topResultEduction;
+    sf::Text topResultUnemployment;
+    sf::Text topResultIncome;
 
     sf::RectangleShape textBoxPoverty;
     sf::RectangleShape textBoxUnemployment;
@@ -45,7 +54,7 @@ public:
     void draw(); //draws all elements
 
 
-    Window(const std::string& title, int width, int height);
+    Window(const std::string& title, int width, int height, vector<Counties>& vect);
     void run();
     void clear();
 
