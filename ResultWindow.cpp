@@ -4,7 +4,7 @@
 #include "ResultWindow.h"
 #include <iostream>
 #include <string>
-
+#include <chrono>
 using namespace std;
 
 ResultWindow::ResultWindow(const std::string &title, int width, int height, vector<Counties>& vect)
@@ -21,6 +21,20 @@ ResultWindow::ResultWindow(const std::string &title, int width, int height, vect
     resultTitle.setFillColor(sf::Color::Black);
     resultTitle.setStyle(sf::Text::Bold);
     resultTitle.setPosition(10, 10);
+
+    HeapSortTime.setFont(font);
+    HeapSortTime.setString("Heap Sort Time: " + to_string(HS));
+    HeapSortTime.setCharacterSize(20);
+    HeapSortTime.setFillColor(sf::Color::Black);
+    HeapSortTime.setStyle(sf::Text::Bold);
+    HeapSortTime.setPosition(10, 600);
+
+    MergeSortTime.setFont(font);
+    MergeSortTime.setString("Merge Sort Time: " + to_string(MS));
+    MergeSortTime.setCharacterSize(20);
+    MergeSortTime.setFillColor(sf::Color::Black);
+    MergeSortTime.setStyle(sf::Text::Bold);
+    MergeSortTime.setPosition(400, 600);
 
     ResultCounty.setFont(font);
     ResultCounty.setString("Top Result: " + vect[0].getName());
@@ -362,6 +376,16 @@ ResultWindow::ResultWindow(const std::string &title, int width, int height, vect
 
 }
 
+void ResultWindow::setMS(double val)
+{
+    MS = val;
+}
+
+void ResultWindow::setHS(double val)
+{
+    HS = val;
+}
+
 void ResultWindow::windowEvents()
 {
     sf::Event event;
@@ -426,6 +450,10 @@ void ResultWindow::draw()
     screen.draw(SpeakEnglishOnly3);
     screen.draw(ForeignLanguage3);
     screen.draw(VeteranPercent3);
+    MergeSortTime.setString("Merge Sort Time: " + std::to_string(MS));
+    HeapSortTime.setString("Heap Sort Time: " + std::to_string(HS));
+    screen.draw(HeapSortTime);
+    screen.draw(MergeSortTime);
     screen.display();
 }
 

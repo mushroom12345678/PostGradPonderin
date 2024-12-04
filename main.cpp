@@ -131,6 +131,8 @@ int main() {
 //    }
 
     ResultWindow resultScreen("Results", 2250, 1000, counties); // Pass sorted vector
+    resultScreen.setMS(mergeTime.count());
+    resultScreen.setHS(heapTime.count());
     resultScreen.run();
     return 0;
 }

@@ -50,7 +50,7 @@ Window::Window(const std::string &title, int width, int height, vector<Counties>
     screenTitle.setPosition(250, 10);
 
     instructions.setFont(font);
-    instructions.setString("Assign each criteria a score of 0 through 9.\n9 is the highest ranking, and 0 is the lowest. \nYou can only use each rank once.");
+    instructions.setString("Assign each criteria a score of 0 through 9.\n9 is the highest ranking, and 0 is the lowest.");
     instructions.setCharacterSize(18);
     instructions.setStyle(sf::Text::Bold);
     instructions.setFillColor(sf::Color::Black);

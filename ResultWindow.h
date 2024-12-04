@@ -3,6 +3,7 @@
 #include <set>
 #include "Counties.h"
 #pragma once
+#include <chrono>
 using namespace std;
 
 class ResultWindow {
@@ -26,6 +27,7 @@ public:
     sf::Text SpeakEnglishOnly;
     sf::Text ForeignLanguage;
     sf::Text VeteranPercent;
+
 
 
     sf::Text ResultCounty2;
@@ -62,13 +64,19 @@ public:
     sf::Text ForeignLanguage3;
     sf::Text VeteranPercent3;
 
+    sf::Text HeapSortTime;
+    sf::Text MergeSortTime;
 
+    double HS;
+    double MS;
 
 
     void windowEvents();
     ResultWindow(const std::string& title, int width, int height, vector<Counties>& vect);
     void draw();
     void run();
+    void setMS(double);
+    void setHS(double);
 
 };
 
