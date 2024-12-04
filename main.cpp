@@ -104,26 +104,32 @@ int main() {
 
     setScores(counties,unemploymentMultiplier , incomeMultiplier , educationMultiplier, povertyMultiplier);
 
-//    MergeSort mergeSort;
-//
-//    auto start_time = chrono::high_resolution_clock::now();
-//
-//    mergeSort.mergeSort(counties,0, counties.size());
-//
-//
-//    auto end_time = chrono::high_resolution_clock::now();
-//    chrono::duration<double> elapsed_time = end_time - start_time;
-//    cout << "Time in seconds: " << elapsed_time.count();
-//
-//    reverse(counties.begin(),counties.end());
+    MergeSort mergeSort;
+
+    auto startTime = chrono::high_resolution_clock::now();
+
+    mergeSort.mergeSort(counties,0, counties.size());
+    reverse(counties.begin(),counties.end());
+
+    auto endTime = chrono::high_resolution_clock::now();
+    chrono::duration<double> mergeTime = endTime - startTime;
+    cout << "Time merge: " << mergeTime.count() << endl;
+
+
 //    for(auto county: counties){
 //        cout << county.getName() << " " << county.getScore() << endl;
 //    }
+    startTime = chrono::high_resolution_clock::now();
 
     heapsortobj.heapSort(counties, counties.size());
-    for(auto county: counties){
-        cout << county.getName() << " " << county.getScore() << endl;
-    }
+
+    endTime = chrono::high_resolution_clock::now();
+    chrono::duration<double> heapTime = endTime - startTime;
+    cout << "Time heap: " << heapTime.count() << endl;
+
+//    for(auto county: counties){
+//        cout << county.getName() << " " << county.getScore() << endl;
+//    }
 
     ResultWindow resultScreen("Results", 2250, 1000, counties); // Pass sorted vector
     resultScreen.run();
