@@ -50,7 +50,7 @@ Window::Window(const std::string &title, int width, int height, vector<Counties>
     screenTitle.setPosition(250, 10);
 
     instructions.setFont(font);
-    instructions.setString("Assign each criteria a score of 1 through 4.\n4 is the highest ranking, and 1 is the lowest. \nYou can only use each number once.");
+    instructions.setString("Assign each criteria a score of 0 through 9.\n9 is the highest ranking, and 0 is the lowest. \nYou can only use each rank once.");
     instructions.setCharacterSize(18);
     instructions.setStyle(sf::Text::Bold);
     instructions.setFillColor(sf::Color::Black);
@@ -185,7 +185,7 @@ void Window::windowEvents() {
         }
 
             if (event.type == sf::Event::TextEntered){
-                if ((event.text.unicode >= '1' && event.text.unicode <= '4') || event.text.unicode == 8){
+                if ((event.text.unicode >= '0' && event.text.unicode <= '9') || event.text.unicode == 8){
                     char enteredChar = static_cast<char>(event.text.unicode);
 
                     if(activeBox==Poverty){
