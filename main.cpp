@@ -125,7 +125,7 @@ int main() {
         cout << county.getName() << " " << county.getScore() << endl;
     }
 
-    ResultWindow resultScreen("Results", 2000, 1000, counties); // Pass sorted vector
+    ResultWindow resultScreen("Results", 2250, 1000, counties); // Pass sorted vector
     resultScreen.run();
     return 0;
 }
