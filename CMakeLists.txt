@@ -27,7 +27,8 @@ add_executable(PostGradPonderin
         Counties.cpp
         Counties.h
         ResultWindow.cpp
-        ResultWindow.h)
+        ResultWindow.h
+        MergeSort.cpp)
 target_link_libraries(PostGradPonderin PRIVATE sfml-graphics)
 target_compile_features(PostGradPonderin PRIVATE cxx_std_14)
 
