@@ -450,6 +450,8 @@ void ResultWindow::draw()
     screen.draw(SpeakEnglishOnly3);
     screen.draw(ForeignLanguage3);
     screen.draw(VeteranPercent3);
+    MergeSortTime.setString("Merge Sort Time: " + std::to_string(MS));
+    HeapSortTime.setString("Heap Sort Time: " + std::to_string(HS));
     screen.draw(HeapSortTime);
     screen.draw(MergeSortTime);
     screen.display();
