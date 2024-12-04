@@ -2,6 +2,8 @@
 #include "Window.h"
 #include "ResultWindow.h"
 #include "HeapSort.h"
+#include "MergeSort.h"
+#include <chrono>
 #include <fstream>
 #include <sstream>
 #include <vector>
@@ -101,6 +103,22 @@ int main() {
 
 
     setScores(counties,unemploymentMultiplier , incomeMultiplier , educationMultiplier, povertyMultiplier);
+
+//    MergeSort mergeSort;
+//
+//    auto start_time = chrono::high_resolution_clock::now();
+//
+//    mergeSort.mergeSort(counties,0, counties.size());
+//
+//
+//    auto end_time = chrono::high_resolution_clock::now();
+//    chrono::duration<double> elapsed_time = end_time - start_time;
+//    cout << "Time in seconds: " << elapsed_time.count();
+//
+//    reverse(counties.begin(),counties.end());
+//    for(auto county: counties){
+//        cout << county.getName() << " " << county.getScore() << endl;
+//    }
 
     heapsortobj.heapSort(counties, counties.size());
     for(auto county: counties){

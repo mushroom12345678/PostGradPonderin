@@ -2,21 +2,20 @@
 // Created by jackd on 11/23/2024.
 //
 #include "MergeSort.h"
-#include <iostream>
 #include <vector>
 
 using namespace std;
 //used class resourses, slides/lectures, to form code, Jack Detweiler 11/22
 
-void MergeSort::merge(vector<int>& list, int left, int mid, int right) {
+void MergeSort::merge(vector<Counties>& list, int left, int mid, int right) {
 
     // Copy left list
-    vector<int> copyLeftList(mid - left + 1);
+    vector<Counties> copyLeftList(mid - left + 1);
     for (int i = 0; i < mid - left + 1; i++)
         copyLeftList[i] = list[left + i];
 
     //copy right list
-    vector<int> copyRightList(right - mid);
+    vector<Counties> copyRightList(right - mid);
     for (int i = 0; i < right - mid; i++)
         copyRightList[i] = list[mid + 1 + i];
 
@@ -26,7 +25,7 @@ void MergeSort::merge(vector<int>& list, int left, int mid, int right) {
 
     //merge halves
     while (j < right - mid and i < mid - left + 1) {
-        if (copyLeftList[i] <= copyRightList[j]) {
+        if (copyLeftList[i].getScore() <= copyRightList[j].getScore()) {
             list[k] = copyLeftList[i];
             i++;
         } else {
@@ -48,7 +47,7 @@ void MergeSort::merge(vector<int>& list, int left, int mid, int right) {
 }
 
 //for initial call left = 0, right = number of elements minus one, recursively ran with halves
-void MergeSort::mergeSort(vector<int>& list, int left, int right) {
+void MergeSort::mergeSort(vector<Counties>& list, int left, int right) {
     if (left < right) {
         //sort first half
         mergeSort(list, left, (left + (right - left) / 2));
