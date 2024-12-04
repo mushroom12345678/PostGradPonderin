@@ -247,6 +247,119 @@ ResultWindow::ResultWindow(const std::string &title, int width, int height, vect
     VeteranPercent2.setStyle(sf::Text::Bold);
     VeteranPercent2.setPosition(700, 545);
 
+
+    ResultCounty3.setFont(font);
+    ResultCounty3.setString("Next Result: " + vect[2].getName());
+    ResultCounty3.setCharacterSize(25);
+    ResultCounty3.setFillColor(sf::Color::Black);
+    ResultCounty3.setStyle(sf::Text::Bold);
+    ResultCounty3.setPosition(1400, 55);
+
+    ResultState3.setFont(font);
+    ResultState3.setString("State: " + vect[2].getState());
+    ResultState3.setCharacterSize(20);
+    ResultState3.setFillColor(sf::Color::Black);
+    ResultState3.setStyle(sf::Text::Bold);
+    ResultState3.setPosition(1400, 85);
+
+    ResultLong3.setFont(font);
+    ResultLong3.setString("Longitude: " + to_string(vect[2].getLongitude()));
+    ResultLong3.setCharacterSize(20);
+    ResultLong3.setFillColor(sf::Color::Black);
+    ResultLong3.setStyle(sf::Text::Bold);
+    ResultLong3.setPosition(1400, 115);
+
+    ResultLat3.setFont(font);
+    ResultLat3.setString("Latitude: "+ to_string(vect[2].getLatitude()));
+    ResultLat3.setCharacterSize(20);
+    ResultLat3.setFillColor(sf::Color::Black);
+    ResultLat3.setStyle(sf::Text::Bold);
+    ResultLat3.setPosition(1400, 145);
+
+    ResultAgeUnder53.setFont(font);
+    ResultAgeUnder53.setString("Percentage of age under 5: "+ to_string(vect[2].getUnder5()));
+    ResultAgeUnder53.setCharacterSize(20);
+    ResultAgeUnder53.setFillColor(sf::Color::Black);
+    ResultAgeUnder53.setStyle(sf::Text::Bold);
+    ResultAgeUnder53.setPosition(1400, 175);
+
+    ResultAgeUnder183.setFont(font);
+    ResultAgeUnder183.setString("Percentage of age under 18: "+ to_string(vect[2].getUnder18()));
+    ResultAgeUnder183.setCharacterSize(20);
+    ResultAgeUnder183.setFillColor(sf::Color::Black);
+    ResultAgeUnder183.setStyle(sf::Text::Bold);
+    ResultAgeUnder183.setPosition(1400, 215);
+
+    ResultAgeOver653.setFont(font);
+    ResultAgeOver653.setString("Percentage of population that is over 65: "+ to_string(vect[2].getOver65()));
+    ResultAgeOver653.setCharacterSize(20);
+    ResultAgeOver653.setFillColor(sf::Color::Black);
+    ResultAgeOver653.setStyle(sf::Text::Bold);
+    ResultAgeOver653.setPosition(1400, 245);
+
+    MedianAge3.setFont(font);
+    MedianAge3.setString("Median Age: "+ to_string(vect[2].getMedianAge()));
+    MedianAge3.setCharacterSize(20);
+    MedianAge3.setFillColor(sf::Color::Black);
+    MedianAge3.setStyle(sf::Text::Bold);
+    MedianAge3.setPosition(1400, 275);
+
+    WhitePercent3.setFont(font);
+    WhitePercent3.setString("Caucasian Population Percentage: "+ to_string(vect[2].getWhite()));
+    WhitePercent3.setCharacterSize(20);
+    WhitePercent3.setFillColor(sf::Color::Black);
+    WhitePercent3.setStyle(sf::Text::Bold);
+    WhitePercent3.setPosition(1400, 315);
+
+    FemalePercent3.setFont(font);
+    FemalePercent3.setString("Female Population Percentage: "+ to_string(vect[2].getFemale()));
+    FemalePercent3.setCharacterSize(20);
+    FemalePercent3.setFillColor(sf::Color::Black);
+    FemalePercent3.setStyle(sf::Text::Bold);
+    FemalePercent3.setPosition(1400, 345);
+
+    BlackPercent3.setFont(font);
+    BlackPercent3.setString("African American Population Percentage: "+ to_string(vect[2].getBlack()));
+    BlackPercent3.setCharacterSize(20);
+    BlackPercent3.setFillColor(sf::Color::Black);
+    BlackPercent3.setStyle(sf::Text::Bold);
+    BlackPercent3.setPosition(1400, 375);
+
+    NativePercent3.setFont(font);
+    NativePercent3.setString("Native American Population Percentage: "+ to_string(vect[2].getNative()));
+    NativePercent3.setCharacterSize(20);
+    NativePercent3.setFillColor(sf::Color::Black);
+    NativePercent3.setStyle(sf::Text::Bold);
+    NativePercent3.setPosition(1400, 415);
+
+    PacificIslandPercent3.setFont(font);
+    PacificIslandPercent3.setString("Pacific Island Population Percentage: "+ to_string(vect[2].getPacificIsland()));
+    PacificIslandPercent3.setCharacterSize(20);
+    PacificIslandPercent3.setFillColor(sf::Color::Black);
+    PacificIslandPercent3.setStyle(sf::Text::Bold);
+    PacificIslandPercent3.setPosition(1400, 445);
+
+    SpeakEnglishOnly3.setFont(font);
+    SpeakEnglishOnly3.setString("Percentage that speaks English only: "+ to_string(vect[2].getEnglish()));
+    SpeakEnglishOnly3.setCharacterSize(20);
+    SpeakEnglishOnly3.setFillColor(sf::Color::Black);
+    SpeakEnglishOnly3.setStyle(sf::Text::Bold);
+    SpeakEnglishOnly3.setPosition(1400, 475);
+
+    ForeignLanguage3.setFont(font);
+    ForeignLanguage3.setString("Percentage that speak a foreign language: "+ to_string(vect[2].getForeign()));
+    ForeignLanguage3.setCharacterSize(20);
+    ForeignLanguage3.setFillColor(sf::Color::Black);
+    ForeignLanguage3.setStyle(sf::Text::Bold);
+    ForeignLanguage3.setPosition(1400, 515);
+
+    VeteranPercent3.setFont(font);
+    VeteranPercent3.setString("Percentage that are veterans: "+ to_string(vect[2].getVeteran()));
+    VeteranPercent3.setCharacterSize(20);
+    VeteranPercent3.setFillColor(sf::Color::Black);
+    VeteranPercent3.setStyle(sf::Text::Bold);
+    VeteranPercent3.setPosition(1400, 545);
+
 }
 
 void ResultWindow::windowEvents()
@@ -297,6 +410,22 @@ void ResultWindow::draw()
     screen.draw(SpeakEnglishOnly2);
     screen.draw(ForeignLanguage2);
     screen.draw(VeteranPercent2);
+    screen.draw(ResultCounty3);
+    screen.draw(ResultState3);
+    screen.draw(ResultLong3);
+    screen.draw(ResultLat3);
+    screen.draw(ResultAgeUnder53);
+    screen.draw(ResultAgeUnder183);
+    screen.draw(ResultAgeOver653);
+    screen.draw(MedianAge3);
+    screen.draw(WhitePercent3);
+    screen.draw(FemalePercent3);
+    screen.draw(BlackPercent3);
+    screen.draw(PacificIslandPercent3);
+    screen.draw(NativePercent3);
+    screen.draw(SpeakEnglishOnly3);
+    screen.draw(ForeignLanguage3);
+    screen.draw(VeteranPercent3);
     screen.display();
 }
 
