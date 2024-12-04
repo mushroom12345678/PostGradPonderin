@@ -170,13 +170,11 @@ void Window::windowEvents() {
             }
             else if(submit.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
             {
-                activeBox = Submit;
-                if(uniqueInputs.size() == 4){
-                    cout << "unique inputs is 4";
+                if (!inputPoverty.empty() and !inputIncome.empty() and !inputEducation.empty() and !inputUnemployment.empty()) {
+                    activeBox = Submit;
                     showResults = true;
+                    screen.close();
                 }
-                screen.close();
-                cout << "input size: " << uniqueInputs.size();
             }
             else
             {
